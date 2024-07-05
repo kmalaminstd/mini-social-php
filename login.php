@@ -1,3 +1,13 @@
+<?php
+
+  session_start();
+
+  if(isset($_SESSION["email"])){
+    header("Location: index.php");
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +23,7 @@
   </head>
   <body>
     <div class="container">
-      <form action="" class="form">
+      <form action="./functions/login.php" method="POST" enctype="multipart/form-data" class="form">
         <h2>Login</h2>
         <div class="form-items">
           <label for="email">Email</label>
@@ -39,7 +49,7 @@
         </div>
         <input type="submit" value="login" name="login" />
         <p class="account_status">
-          No account ? <span><a href="sign_up.html">Registration</a></span>
+          Not Registered ? <span><a href="./sign_up.php">Registration</a></span>
         </p>
       </form>
     </div>
