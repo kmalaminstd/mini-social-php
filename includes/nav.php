@@ -9,8 +9,8 @@
             <button class="toggle-button" onclick="toggleMenu()">☰</button>
         </div>
         <div class="menu" id="navbarMenu">
-            <a href="#home">Home</a>
-            <a href="#home">Write Post</a>
+            <a href="index.php">Home</a>
+            <a href="writepost.php">Write Post</a>
             <a href="profile.php">Profile</a>
             <a href="#report">Report Us</a>
 
