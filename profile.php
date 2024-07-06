@@ -7,10 +7,11 @@
 <div class="profile-container">
 
         <div class="profile-header">
-            <img src="./assets/images/default-profile.png" alt="Profile Picture" class="profile-picture">
+            <img src="./assets/images/dummy-author.png" alt="Profile Picture" class="profile-picture">
             <h2 class="profile-name">User Name</h2>
+            <button class="edit-profile-button" disabled>Update Image</button>
             <button class="edit-profile-button" disabled>Edit Profile</button>
-            <a class="lgt_btn" href="./logout.php">LOG OUT</a>
+            
         </div>
 
         <div class="profile-details">
@@ -40,8 +41,8 @@
             </div>
 
         </div>
-
-</div>
+        <a class="lgt_btn" href="./logout.php">LOG OUT</a>
+    </div>
 
 <?php
 
