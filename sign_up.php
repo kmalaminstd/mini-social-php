@@ -1,8 +1,12 @@
 <?php
 
+  $cookies_lifetime = 30 * 24 * 60 * 60 ; // a month
+  session_set_cookie_params($cookies_lifetime);
+
   session_start();
   if(isset($_SESSION["email"])){
     header("Location: index.php");
+    exit();
   }
 
 ?>

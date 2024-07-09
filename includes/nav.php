@@ -1,5 +1,14 @@
 <?php
+
+    $cookies_lifetime = 30 * 24 * 60 * 60 ; // a month
+    session_set_cookie_params($cookies_lifetime);
+
+    session_start();
     include "./functions/database.php";
+    if(!isset($_SESSION["email"])){
+        header("Location: login.php");
+        exit();
+    }
 ?>
 
 <nav class="navbar">
@@ -24,3 +33,7 @@
     <div style="margin-top: 80px;">
 
     </div>
+
+
+
+

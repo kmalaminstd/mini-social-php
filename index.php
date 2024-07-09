@@ -1,11 +1,11 @@
 <?php
-    session_start();
+    // session_start();
     include "./includes/header.php";
     include "./includes/nav.php";
 
-    if(!$_SESSION["email"]){
-        header("Location: login.php");
-    }
+    // if(!$_SESSION["email"]){
+    //     header("Location: login.php");
+    // }
 
     // echo $_SESSION["email"];
 ?>

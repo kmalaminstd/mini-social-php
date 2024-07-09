@@ -1,4 +1,5 @@
 <?php
+    session_get_cookie_params();
     session_start();
     include "./database.php";
 
@@ -32,10 +33,13 @@
 
                 if($stmt->execute()){
                     // echo "Registration Successfull";
-                    header("Location: ./index.php");
+                    $user_id = mysqli_insert_id($conn);
+                    $_SESSION["USER_ID"] = $user_id;
                     $_SESSION["firstname"] = $firstName;
                     $_SESSION["lastname"] = $lastName;
                     $_SESSION["email"] = $email;
+                    
+                    header("Location: ../index.php");
                 }else{
                     echo "Error". $stmt->error;
                 }

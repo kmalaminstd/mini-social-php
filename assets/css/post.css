@@ -1,6 +1,9 @@
 
 .posts{
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
 }
 
 .post {
@@ -9,6 +12,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     padding: 20px;
+    width: 100%;
 }
 
 .post-header {
@@ -43,6 +47,8 @@
 }
 
 .post-footer {
+    display: flex;
+    flex-direction: column;
     border-top: 1px solid #e0e0e0;
     padding-top: 10px;
 }

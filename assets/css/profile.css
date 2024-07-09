@@ -41,7 +41,7 @@ button:disabled{
 
 
 
-.lgt_btn , .edit-profile-button {
+.lgt_btn , .edit-profile-button, .update-profile-button, .edit-profile-button-two {
     background-color: #007bff;
     color: white;
     border: none;

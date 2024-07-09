@@ -1,0 +1,27 @@
+.user_post_table_container{
+    margin-top: 40px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    
+}
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+th {
+    background-color: lightgray;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.table-container {
+    overflow-x: auto;
+}

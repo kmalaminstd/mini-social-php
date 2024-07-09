@@ -1,9 +1,10 @@
 <?php
     session_start();
     include "./database.php";
-    if($_SESSION["email"]){
+    if(isset($_SESSION["email"])){
         header("Location: ../index.php");
-        echo $_SESSION["email"];
+        // echo $_SESSION["email"];
+        exit();
     }
     echo $_SESSION["email"];
 
@@ -23,19 +24,24 @@
             $stmt->store_result();
 
             if($stmt->num_rows() > 0){
-                $stmt->bind_result($id, $firstname, $lastname, $email, $hashed_password, $time);
+                $stmt->bind_result($id, $firstname, $lastname, $userEmail, $hashed_password, $time);
                 if($stmt->fetch()){
                     if(password_verify($password, $hashed_password)){
                         // echo "Success";
+                        $_SESSION["USER_ID"] = $id;
+                        $_SESSION["firstname"] = $firstname;
+                        $_SESSION["lastname"] = $lastname;
+                        $_SESSION["email"] = $userEmail;
+                        session_set_cookie_params(30 * 24 * 60 * 60);
                         header("Location: ../index.php");
-                        $_SESSION["firstname"] = $firstName;
-                        $_SESSION["lastname"] = $lastName;
-                        $_SESSION["email"] = $email;
+                        exit();
                     }else{
                         echo "failed";
                     }
                 }
                 
+            }else{
+                header("location: ../sign_up.php");
             }
 
            }
