@@ -17,6 +17,8 @@
 
 <script>
 
+    const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
     const url = "./functions/getpost.php";
     let slNo = 1;
     user_emai = <?php echo json_encode(['email'=>$_SESSION["email"]]) ?>
@@ -25,15 +27,18 @@
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            console.log(data);
-            data.map(elm =>{
-                if(elm.user_email === user_emai.email){
+            console.log(data.data);
+            data.data.forEach(elm =>{
+                if(elm.user_email === user_emai.email){ 
+
+                    const timestamp = elm.post_created_at;
+                    const date = new Date(timestamp)
 
                     const html = `            
                     <tr data-id=${elm.post_id}>
                         <td>${slNo++}</td>
                         <td style="width: 70%; height: 200px; overflow: scroll;">${elm.content}</td>
-                        <td>${elm.created_at}</td>
+                        <td>${date.toLocaleString()}</td>
                         <td> <form class="delete_form" method="POST" action="./functions/deletepost.php">
                             <input name="post_value_id" value=${elm.post_id} hidden/>
                             <input type="submit" value="Delete" name="delete_post" style="cursor: pointer;" />

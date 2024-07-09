@@ -5,6 +5,8 @@
 
 <script>
 
+    const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
     const postUrl = "./functions/getpost.php"
     
     
@@ -45,6 +47,8 @@
 
         
     function createPostElement(elm){
+
+        const date = new Date(elm.post_created_at)
         
         const postElement = document.createElement("div")
         postElement.classList.add("post")
@@ -58,7 +62,7 @@
                                     </div>
                                     <div>
                                         <div class="post-author">${elm.author_name}</div>
-                                        <div class="post-time">${elm.post_created_at}</div>
+                                        <div class="post-time">${date.getDate() + ' ' + month[date.getMonth() + 1] + ' ' + date.getFullYear()}</div>
                                     </div>
 
                                 </div>
@@ -92,7 +96,7 @@
             const commentInputBtn = cmtDiv.querySelector("#comment_sub")
             // console.log(cmtDiv);
             commentInputForm && commentInputBtn && commentInputBtn.addEventListener("click",(e)=> {
-                    location.reload()
+                    e.preventDefault()
 
                     // commentInputBtn.disabled = true;
 
@@ -104,15 +108,7 @@
                         body: formData
                     }).then(res => res.json())
                         .then(data => {
-                            
-                            // Re-enable the button if needed
-                        // commentInputBtn.disabled = false;
-                            // const postId = commentInputForm.querySelector('[name="post_id"]').value;
-                            // const commentsDiv = cmtDiv.querySelector(".comments.comment_list");
-                            // // showComment(commentsDiv, postId);
-
-                            // console.log(commentDiv);
-                            // console.log(postId);
+    
 
                             commentInputForm.reset();
                         })

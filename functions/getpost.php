@@ -6,14 +6,14 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     
-    $sql = "SELECT posts.post_id, posts.content, posts.created_at AS post_created_at, posts.author_name, users.profile_image FROM users JOIN posts ON users.email = posts.user_email";
+    $sql = "SELECT posts.user_email, posts.post_id, posts.content, posts.created_at AS post_created_at, posts.author_name, users.profile_image FROM users JOIN posts ON users.email = posts.user_email";
 
     $results = $conn->query($sql);
 
     $posts = [];
 
     if($results->num_rows > 0){
-        while($rows = $results->fetch_assoc()){
+        while($rows = $results->fetch_assoc()){ 
             $posts[] = $rows;
         }
     }

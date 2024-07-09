@@ -49,9 +49,9 @@
         .then(res => res.json())
         .then(data => {
             // console.log(data);
-            data.map(elm => {
+            data.data.map(elm => {
                 if(elm.user_email === exactEmail && elm.post_id === id){
-                    console.log(elm);
+                    // console.log(elm);
                     document.querySelector("#content").value = elm.content;
                     document.querySelector(".post_id").value = elm.post_id;
                 }

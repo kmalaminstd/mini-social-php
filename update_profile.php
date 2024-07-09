@@ -42,7 +42,7 @@
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             data.map(elm => {
                 document.querySelector("#firstname").value = elm.firstname;
                 document.querySelector("#lastname").value = elm.lastname;
